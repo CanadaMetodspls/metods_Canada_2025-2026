@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Payment Methods Melbet — Canada Presentation</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --card:#f5f5f5;
+      --accent:#d32f2f;
+      --muted:#555;
+      --glass:rgba(255,255,255,0.5);
+    }
+    body{
+      font-family:Inter,system-ui,Segoe UI,Roboto,sans-serif;
+      background:linear-gradient(180deg,#ffffff 0%, #eaeaea 100%);
+      color:#1b1b1b;
+      margin:0;
+      padding:32px;
+    }
+    .wrap{max-width:980px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;border-bottom:3px solid var(--accent);padding-bottom:10px}
+    .branding{display:flex;align-items:center;gap:12px}
+    .branding img{height:48px}
+    h1{font-size:22px;margin:0;color:var(--accent)}
+    p.lead{color:var(--muted);margin:6px 0 0;font-size:14px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
+    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.08);border:1px solid #e6e6e6}
+    .method-head{display:flex;gap:12px;align-items:center}
+    .badge{background:#fff;padding:6px 10px;border-radius:999px;font-size:12px;color:var(--accent);border:1px solid var(--accent)}
+    .channel{display:inline-block;background:var(--accent);padding:6px 8px;border-radius:8px;font-size:12px;color:#fff;margin-left:8px}
+    .lang-switch{margin-left:12px;background:#fff;color:var(--accent);border:1px solid var(--accent);cursor:pointer;padding:6px 12px;border-radius:8px;}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center;border-top:2px solid var(--accent);padding-top:12px}
+    .tag{display:inline-block;padding:6px 8px;border-radius:6px;background:#d32f2f;color:#fff;font-size:12px;margin-right:8px}
+    .explain{margin-top:10px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="branding">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Melbet_logo.svg" alt="Melbet logo">
+        <div>
+          <h1>Payment Methods Melbet — Canada Presentation</h1>
+          <p class="lead">Single-page presentation for Canadian payment methods (CAD): Interac e-Transfer, E‑com, PayPal and Crypto Wallets.</p>
+        </div>
+      </div>
+      <div>
+        <button class="lang-switch" id="langBtn">EN / RU</button>
+      </div>
+    </header>
+
+    <div class="grid" id="methods">
+      <div class='card'>
+        <div class='method-head'><strong>1) Interac e-Transfer</strong></div>
+        <div class='explain'>Currency: <span class='tag'>CAD</span> — Channels: <span class='badge'>FTD</span> <span class='channel'>TTD</span>
+        <p class='small' style='margin-top:8px'>Provide recipient email / autodeposit name and ask users to include their username and partner ID in the memo for automatic reconciliation.</p></div>
+      </div>
+
+      <div class='card'>
+        <div class='method-head'><strong>2) E-com Solution (Card)</strong></div>
+        <div class='explain'>Currency: <span class='tag'>CAD</span> — Channels: <span class='badge'>FTD</span> <span class='channel'>TTD</span>
+        <p class='small' style='margin-top:8px'>Standard card gateway checkout (Stripe/Adyen etc.). Implement server-side callbacks to mark FTD and TTD events and reconcile payments on your backend.</p></div>
+      </div>
+
+      <div class='card'>
+        <div class='method-head'><strong>3) PayPal (P2P)</strong></div>
+        <div class='explain'>Supported as P2P transfers (PayPal.Me or account). Currency: <span class='tag'>CAD</span> — Channels: <span class='badge'>FTD</span> <span class='channel'>TTD</span>
+        <p class='small' style='margin-top:8px'>Recommend users include username/ID in the payment note. P2P is compatible with both FTD and TTD flows; reconcile via payment confirmations and forwarded receipts.</p></div>
+      </div>
+
+      <div class='card'>
+        <div class='method-head'><strong>4) Crypto Wallets (P2P)</strong></div>
+        <div class='explain'>Provide public receive addresses for on-chain transfers. Currency: crypto (on-chain) — Channels: <span class='badge'>FTD</span> <span class='channel'>TTD</span>
+        <p class='small' style='margin-top:8px'>Supported exchanges / recommended receivers: <strong>Kraken</strong>, <strong>Coinbase</strong>, <strong>Bitbuy</strong>.</p></div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="small">© 2025 Payment Presentation. Designed in Canadian colours 🇨🇦</div>
+    </footer>
+  </div>
+
+  <script>
+    const content = {
+      en: document.getElementById('methods').innerHTML,
+      ru: `<div class='card'>
+        <div class='method-head'><strong>1) Interac e-Transfer</strong></div>
+        <div class='explain'>Валюта: <span class='tag'>CAD</span> — Каналы: <span class='badge'>FTD</span> <span class='channel'>TTD</span>
+        <p class='small' style='margin-top:8px'>Укажите email получателя / имя автодепозита и попросите пользователей добавить имя и ID партнёра в комментарий для автоматической сверки.</p></div>
+      </div>
+
+      <div class='card'>
+        <div class='method-head'><strong>2) E-com Решение (Карта)</strong></div>
+        <div class='explain'>Валюта: <span class='tag'>CAD</span> — Каналы: <span class='badge'>FTD</span> <span class='channel'>TTD</span>
+        <p class='small' style='margin-top:8px'>Стандартная форма оплаты через шлюз (Stripe, Adyen и др.). Реализуйте серверные колбэки для отметки FTD и TTD и сверки транзакций.</p></div>
+      </div>
+
+      <div class='card'>
+        <div class='method-head'><strong>3) PayPal (P2P)</strong></div>
+        <div class='explain'>Поддерживаются P2P переводы (PayPal.Me или аккаунт). Валюта: <span class='tag'>CAD</span> — Каналы: <span class='badge'>FTD</span> <span class='channel'>TTD</span>
+        <p class='small' style='margin-top:8px'>Рекомендуем пользователям указывать имя/ID в примечании. P2P подходит для FTD и TTD, сверка производится по подтверждениям платежей.</p></div>
+      </div>
+
+      <div class='card'>
+        <div class='method-head'><strong>4) Криптокошельки (P2P)</strong></div>
+        <div class='explain'>Предоставьте публичные адреса для on-chain переводов. Валюта: крипто — Каналы: <span class='badge'>FTD</span> <span class='channel'>TTD</span>
+        <p class='small' style='margin-top:8px'>Рекомендуемые биржи / получатели: <strong>Kraken</strong>, <strong>Coinbase</strong>, <strong>Bitbuy</strong>.</p></div>
+      </div>`
+    };
+
+    let currentLang = 'en';
+    const methodsDiv = document.getElementById('methods');
+
+    document.getElementById('langBtn').addEventListener('click', ()=>{
+      currentLang = currentLang === 'en' ? 'ru' : 'en';
+      methodsDiv.innerHTML = content[currentLang];
+    });
+  </script>
+</body>
+</html>
